@@ -1,10 +1,12 @@
 //File: scripts/main.js
-require.config({
-    baseUrl: '/my-javascript-module-folder',
+require.config({   
+    paths: {        
+        "hello": "helper/world"
+    },
 });
 
 
-requirejs(['helper/world'], function(helper_world) {
+requirejs(['hello'], function(helper_world) {
     var message = helper_world.getMessage();
     alert(message);
 });
