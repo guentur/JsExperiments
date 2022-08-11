@@ -1,4 +1,5 @@
 //File: scripts/main.js
-requirejs([], function() {
-    alert("Hello World");
+require(['helper/world'], function(helper_world) {
+    var message = helper_world.getMessage();
+    alert(message);
 });
