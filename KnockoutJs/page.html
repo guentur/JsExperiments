@@ -8,15 +8,31 @@
 </head>
 <body>
 <div id="main">
-    <h1 data-bind="text: getTitle()"></h1>
+    <!-- <h1 data-bind="text: getTitle()"></h1>
     <p data-bind="text: content"></p>
-    <input type="text" data-bind="value: theValue"/>
+    <input type="text" data-bind="value: theValue()"/>
+    <select data-bind="value: theValue()">
+        <option value="">-- Choose --</option>
+        <option value="1">First</option>
+        <option value="2">Second</option>        
+        <option value="3">Third</option>                
+    </select> -->
+
+    <hr>
+ 
+    <p data-bind="text: theValue"></p>
     <select data-bind="value: theValue">
         <option value="">-- Choose --</option>
         <option value="1">First</option>
         <option value="2">Second</option>        
         <option value="3">Third</option>                
-    </select>
+    </select>    
+    <input type="text" data-bind="value: theValue"/>
+
+    <div>
+    <br/><br/>
+    <button id="button">Do It</button>
+    </div>
 </div>
 </body>
 </html>

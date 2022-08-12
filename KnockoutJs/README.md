@@ -74,3 +74,21 @@ If we look at the important section of our view, we see the `data-bind` attribut
 ```
 
 When you call `applyBindings`, KnockoutJS will scan the entire HTML page for `data-bind` attributes. When it finds these attributes, it parses the attribute for the binding name and value, and then invokes a set of rules based on the name of the binding.
+
+---
+### Observable
+```
+//File: ko-init.js
+this.theValue = ko.observable("1");
+```
+An observable is a special sort of getter and setter.
+
+
+If you open up your *javascript console*, and type the following, you’ll see we can fetch the value of the observable by calling it as a function (`viewModel` is available via the console since we defined it as a global object on the `window` object)
+
+```
+> viewModel.theValue()    
+> "1"
+```
+
+

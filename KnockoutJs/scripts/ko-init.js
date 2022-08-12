@@ -1,14 +1,9 @@
 jQuery(function(){
     var viewModelConstructor = function()
-    {
-        this.getTitle = function()
-        {
-            return "Hello Method World";
-        }
-       this.content = "So many years of hello world";
-       this.theValue = "2";
+    {   
+       this.theValue = ko.observable("1");
     }
 
-    viewModel = new viewModelConstructor;
-    ko.applyBindings(viewModel);
-});
+    window.viewModel = new viewModelConstructor;
+    ko.applyBindings(window.viewModel);        
+}); 
