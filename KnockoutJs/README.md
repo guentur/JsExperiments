@@ -112,3 +112,39 @@ The most basic way of adding a named template to the system is adding a `<script
 ```
 
 If you’ve never seen this before it may seem weird/foreign, but many modern javascript frameworks use non-`text/javascript` `<script/>` tags as a way to add non-rendered (but DOM accessible) content to a page. A template is just a standard set of HTML nodes with KnockoutJS bindings.
+
+### Component Binding
+Components are a way to package together a KnockoutJS template, and a KnockoutJS view file.
+
+```
+<!-- File: page.html -->      
+<div data-bind="component:'component-hello-world'"></div>
+```
+
+which hides the complexity of a registered component.
+
+```
+//File: ko-init.js
+jQuery(function(){    
+    var viewModelConstructor = function()
+    {   
+        this.message = "Hello World";
+    }  
+
+    var theTemplate = "<h1 data-bind=\"text:message\"></h1>";    
+
+    ko.components.register('component-hello-world', {
+        viewModel:viewModelConstructor,
+        template:theTemplate
+    });    
+
+    ko.applyBindings();        
+});
+```
+
+The `register` function of the component object expects a name for your component, and then a KnockoutJS component object. A component object is a javascript script object with two properties. The `viewModel` property expects a view model **constructor function**, and the `template` property should be a string with a KnockoutJS template.
+
+
+
+
+The official docs have a [pretty good overview](http://knockoutjs.com/documentation/component-overview.html) of the component binding.
