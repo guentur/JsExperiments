@@ -5,7 +5,8 @@ jQuery(function(){
         {
             return "Hello Method World";
         }
-       this.content = "So many years of hello world";        
+       this.content = "So many years of hello world";
+       this.theValue = "2";
     }
 
     viewModel = new viewModelConstructor;
