@@ -91,4 +91,24 @@ If you open up your *javascript console*, and type the following, you’ll see w
 > "1"
 ```
 
+### Template Binding
+The template binding accepts a javascript object as a parameter
 
+```
+<!-- File: template-binding.html --> 
+<div id="one" data-bind="template:{'name':'hello-world','data':first}"></div>
+```
+
+The data parameter is the property of the view model we want to render the template with. The name of the template is just that — the template name to lookup and render.
+
+The most basic way of adding a named template to the system is adding a `<script/>` tag with a `type` of `text/html`.
+
+```
+<!-- File: template-binding.html --> 
+<script type="text/html" id="hello-world">
+    <h1 data-bind="text:theTitle"></h1>
+    <p data-bind="text:theContent"></p>
+</script>   
+```
+
+If you’ve never seen this before it may seem weird/foreign, but many modern javascript frameworks use non-`text/javascript` `<script/>` tags as a way to add non-rendered (but DOM accessible) content to a page. A template is just a standard set of HTML nodes with KnockoutJS bindings.
