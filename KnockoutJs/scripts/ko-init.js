@@ -1,7 +1,13 @@
 jQuery(function(){
-    viewModel = {
-        title:"Hello World",
-        content:"So many years of hello world"
-    };
+    var viewModelConstructor = function()
+    {
+        this.getTitle = function()
+        {
+            return "Hello Method World";
+        }
+       this.content = "So many years of hello world";        
+    }
+
+    viewModel = new viewModelConstructor;
     ko.applyBindings(viewModel);
 });
