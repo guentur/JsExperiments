@@ -1,0 +1,38 @@
+<!-- File: page.html -->  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="scripts/ko-init.js"></script>
+</head>
+<body>
+<div id="main">
+    <!-- <h1 data-bind="text: getTitle()"></h1>
+    <p data-bind="text: content"></p>
+    <input type="text" data-bind="value: theValue()"/>
+    <select data-bind="value: theValue()">
+        <option value="">-- Choose --</option>
+        <option value="1">First</option>
+        <option value="2">Second</option>        
+        <option value="3">Third</option>                
+    </select> -->
+
+    <hr>
+ 
+    <p data-bind="text: theValue"></p>
+    <select data-bind="value: theValue">
+        <option value="">-- Choose --</option>
+        <option value="1">First</option>
+        <option value="2">Second</option>        
+        <option value="3">Third</option>                
+    </select>    
+    <input type="text" data-bind="value: theValue"/>
+
+    <div>
+    <br/><br/>
+    <button data-bind="click:pickRandomValue">Do It</button>
+    </div>
+</div>
+</body>
+</html>
