@@ -144,7 +144,34 @@ jQuery(function(){
 
 The `register` function of the component object expects a name for your component, and then a KnockoutJS component object. A component object is a javascript script object with two properties. The `viewModel` property expects a view model **constructor function**, and the `template` property should be a string with a KnockoutJS template.
 
-
-
-
 The official docs have a [pretty good overview](http://knockoutjs.com/documentation/component-overview.html) of the component binding.
+
+### Custom Binding
+
+```
+<!-- File: page.html -->  
+<div data-bind="pulseStormHelloWorld:message"></div>
+```
+
+Without an implementation, KnockoutJS will ignore our binding. Instead, implement JS with your logic
+
+```
+//File: ko-init.js
+jQuery(function(){    
+    var viewModelConstructor = function()
+    {   
+        this.message = "Hello World";
+    }  
+
+    ko.bindingHandlers.pulseStormHelloWorld = {
+        update: function(element, valueAccessor){
+            jQuery(element).html('<h1>' + valueAccessor() + '</h1>');
+        }
+    };    
+    ko.applyBindings(new viewModelConstructor);        
+});
+```
+
+To add the custom binding to KnockoutJS, all we need to do is add a property to the `ko` object’s `binidngHandlers` object. The name of this property is the name of our binding. The _handler_ is a JS object with an `update` method. KnockoutJS calls the `update` method whenever a binding is invoked — either during `applyBindings`, or via an observable.
+
+[KnockoutJS core documentation on custom bindings](http://learn.knockoutjs.com/#/?tutorial=custombindings)
