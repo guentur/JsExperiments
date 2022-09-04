@@ -188,3 +188,6 @@ jQuery(function(){
 To add the custom binding to KnockoutJS, all we need to do is add a property to the `ko` object’s `binidngHandlers` object. The name of this property is the name of our binding. The _handler_ is a JS object with an `update` method. KnockoutJS calls the `update` method whenever a binding is invoked — either during `applyBindings`, or via an observable.
 
 [KnockoutJS core documentation on custom bindings](http://learn.knockoutjs.com/#/?tutorial=custombindings)
+
+## Wrap up
+Our tour here is incomplete, but hopefully it’s enough to get you interested in working through KnockoutJS’s **[tutorials]**(http://learn.knockoutjs.com/) and [documentation](http://knockoutjs.com/documentation/introduction.html) for yourself.
