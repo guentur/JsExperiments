@@ -28,16 +28,18 @@ This page
 3.  Sets up an empty DOM node structure
 
 ---
+### Why have we added JQuery although (however) it is not required for KnockoutJs
+While jQuery isn’t required, KnockoutJS can’t start rendering a view until the entire document/DOM is loaded, and jQuery’s default document ready functionality is a good way to achieve this.
+
+---
 If you load this page in a browser, it will be completely blank. That’s because we need to
 1.  Add the javascript code that creates a **view model** and applies the **KnockoutJS bindings**
 2.  Add the **view code** to the HTML page that reads from the **view model**
 
---
+---
 *KnockoutJS bills itself as an “MVVM” system*. This stands for Model, View, View Model. Really though, KnockoutJS is **better billed as a VVM system**, since its agnostic about what sort of model code you use to fetch data.
 The view is your HTML page. The view model is the javascript object that contains data.
 
----
-### Why have we added JQuery although (however) it is not required for KnockoutJs
 Take a look at the javascript code
 ```
 //File: ko-init.js
@@ -49,8 +51,6 @@ jQuery(function(){
     ko.applyBindings(viewModel);
 });
 ```
-While jQuery isn’t required, KnockoutJS can’t start rendering a view until the entire document/DOM is loaded, and jQuery’s default document ready functionality is a good way to achieve this.
-
 Here we’ve created a view model with simple key/value pairs.
 
 ```
@@ -77,9 +77,22 @@ When you call `applyBindings`, KnockoutJS will scan the entire HTML page for `da
 
 ---
 ### Observable
-```
+```js
 //File: ko-init.js
-this.theValue = ko.observable("1");
+jQuery(function(){
+    var viewModelConstructor = function()
+    {   
+        this.theValue = ko.observable("1");
+        var that = this;
+        this.pickRandomValue = function(){
+            var val = Math.floor(Math.random() * (3));
+            that.theValue(val);
+        };
+    }
+
+    window.viewModel = new viewModelConstructor;
+    ko.applyBindings(window.viewModel); 
+}); 
 ```
 An observable is a special sort of getter and setter.
 
