@@ -190,4 +190,4 @@ To add the custom binding to KnockoutJS, all we need to do is add a property to 
 [KnockoutJS core documentation on custom bindings](http://learn.knockoutjs.com/#/?tutorial=custombindings)
 
 ## Wrap up
-Our tour here is incomplete, but hopefully it’s enough to get you interested in working through KnockoutJS’s **[tutorials]**(http://learn.knockoutjs.com/) and [documentation](http://knockoutjs.com/documentation/introduction.html) for yourself.
+Our tour here is incomplete, but hopefully it’s enough to get you interested in working through KnockoutJS’s [**tutorials**](http://learn.knockoutjs.com/) and [documentation](http://knockoutjs.com/documentation/introduction.html) for yourself.
